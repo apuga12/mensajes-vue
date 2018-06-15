@@ -34,7 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().
 		// antMatchers("/**").
-				antMatchers(PUBLIC_MATCHERS).permitAll().anyRequest().authenticated();
+				antMatchers(PUBLIC_MATCHERS).permitAll()
+				.anyRequest().authenticated();
 
 		http.csrf().disable().cors().disable().formLogin().defaultSuccessUrl("/").loginPage("/login")
 				.failureHandler(new AuthFailureHandler()).permitAll().and().logout()
